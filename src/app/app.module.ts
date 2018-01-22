@@ -23,6 +23,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -32,8 +33,8 @@ const appRoutes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'add-client', component: AddClientComponent},
-  {path:'client/:id', component: ClientDetailsComponent }
-
+  {path:'client/:id', component: ClientDetailsComponent },
+  {path:'edit-client/:id', component: EditClientComponent }
 ];
 
 @NgModule({
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
   providers: [
     AngularFireDatabase,
     AngularFireDatabaseModule,
-    ClientService
+    ClientService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
