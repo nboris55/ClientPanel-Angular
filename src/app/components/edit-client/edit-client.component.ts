@@ -12,13 +12,7 @@ import { Client } from '../../models/Client';
 })
 export class EditClientComponent implements OnInit {
   id: string;
-  client: Client = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    balance: 0
-  }
+  client: Client;
 
   disableBalanceOnEdit: boolean = true;
 
@@ -31,11 +25,10 @@ export class EditClientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  this.id = this.route.snapshot.params['id'];
-
-  this.clientService.getClient(this.id).subscribe(client => {
-    this.client = client
-  });
+    this.id = this.route.snapshot.params['id'];
+    this.clientService.getClient(this.id).subscribe(client => {
+    this.client = client;
+    });
   }
 
   onSubmit({value, valid}: {value: Client, valid: boolean}) {
