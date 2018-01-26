@@ -5,9 +5,9 @@ import { Settings } from '../models/Settings';
 @Injectable()
 export class SettingsService {
   settings: Settings = {
-    allowRegistration: false,
-    disableBalanceOnAdd: true,
-    disableBalanceOnEdit: true
+    allowRegistration: true,
+    disableBalanceOnAdd: false,
+    disableBalanceOnEdit: false
   }
   constructor() { 
     if (localStorage.getItem('settings') != null ) {
